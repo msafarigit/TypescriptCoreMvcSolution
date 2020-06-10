@@ -9,7 +9,7 @@ Explore
 @msafarigit 
 msafarigit
 /
-AngularCoreSolution
+TypescriptCoreMvcSolution
 1
 00
  Code
@@ -20,7 +20,7 @@ AngularCoreSolution
  Security 0
  Insights
  Settings
-AngularCoreSolution/.gitignore
+TypescriptCoreMvcSolution/.gitignore
  safari Add .gitignore and .gitattributes.
 0918d24 on Feb 25
 340 lines (273 sloc)  5.61 KB
@@ -378,3 +378,4 @@ Training
 Blog
 About
 
+./TypescriptCoreMvc/wwwroot/tsc/*
