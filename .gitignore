@@ -1,0 +1,4 @@
+
+TypescriptCoreMvc/bin/*
+TypescriptCoreMvc/obj/*
+TypescriptCoreMvc/obj/Debug/netcoreapp3.1/TypescriptCoreMvc.csprojAssemblyReference.cache
