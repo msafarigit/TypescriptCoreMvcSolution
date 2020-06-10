@@ -1,0 +1,16 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es2015",
+    "outDir": "wwwroot/tsc"
+  },
+  "include": [
+    "Scripts/**/*",
+    "Views/**/*"
+  ]
+}
