@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
+    "moduleResolution": "Node",
     "sourceMap": true,
     "target": "es2015",
     "outDir": "wwwroot/tsc"
@@ -12,5 +13,9 @@
   "include": [
     "Scripts/**/*",
     "Views/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\tsc\**" />
+    <Content Remove="wwwroot\tsc\**" />
+    <EmbeddedResource Remove="wwwroot\tsc\**" />
+    <None Remove="wwwroot\tsc\**" />
     <TypeScriptCompile Remove="node_modules\**" />
+    <TypeScriptCompile Remove="wwwroot\tsc\**" />
   </ItemGroup>
 
   <ItemGroup>
