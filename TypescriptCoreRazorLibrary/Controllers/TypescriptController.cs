@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TypescriptCoreRazorLibrary.MyFeature.Pages
+namespace TypescriptCoreRazorLibrary.Controllers
 {
-    public class Page1Model : PageModel
+    public class TypescriptController : BaseController
     {
-        public void OnGet()
+        public IActionResult Index()
         {
-
+            return View();
         }
     }
 }
