@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TypescriptCoreRazorLibrary.Controllers;
+using TypescriptCoreRazorLibrary.Services;
 
 namespace TypescriptCoreWeb
 {
@@ -27,6 +28,9 @@ namespace TypescriptCoreWeb
             services.AddControllersWithViews()
                     .ConfigureApplicationPartManager(partManager => partManager.ApplicationParts.Add(new AssemblyPart(typeof(BaseController).Assembly)))
                     .AddRazorRuntimeCompilation();
+
+            services.AddTypescriptCoreRazorLibrary();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
