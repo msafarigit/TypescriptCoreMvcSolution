@@ -10,6 +10,14 @@ module.exports = function (env, argv) {
     console.log('Process NODE_ENV: ', process.env.NODE_ENV); // undefined
 
     const singletonStyleLoader = { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } }
+    const miniCssExtractPluginLoader = {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+            // by default it uses publicPath in webpackOptions.output
+            publicPath: './',
+            hmr: !env.production
+        }
+    }
 
     return {
         mode: env.production ? 'production' : 'development',
@@ -23,7 +31,7 @@ module.exports = function (env, argv) {
                     test: /\.(sa|sc|c)ss$/,
                     exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.module\.css$/i],
                     use: [
-                        env.production ? MiniCssExtractPlugin.loader : singletonStyleLoader,
+                        env.production ? miniCssExtractPluginLoader : singletonStyleLoader,
                         {
                             loader: 'css-loader',
                             options: {
