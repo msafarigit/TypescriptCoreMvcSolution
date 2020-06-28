@@ -1,11 +1,14 @@
 ﻿const path = require('path');
 const webpack = require('webpack');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = function (env, argv) {
     console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
     console.log('Production: ', env.production); // true
-    //process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
+    
+    const singletonStyleLoader = { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } }
 
     return {
         mode: env.production ? 'production' : 'development',
@@ -19,7 +22,7 @@ module.exports = function (env, argv) {
                     test: /\.css$/,
                     exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.module\.css$/i],
                     use: [
-                        { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } },
+                        process.env.NODE_ENV !== 'production' ? singletonStyleLoader : MiniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader',
                             options: {
@@ -55,7 +58,7 @@ module.exports = function (env, argv) {
                             loader: 'css-loader',
                             options: {
                                 modules: true,
-                            },
+                            }
                         },
                     ],
                 }, {
@@ -63,7 +66,7 @@ module.exports = function (env, argv) {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                    },
+                    }
                 }
             ],
         },
@@ -73,12 +76,15 @@ module.exports = function (env, argv) {
             publicPath: 'dist/'
         },
         plugins: [
-            new CleanWebpackPlugin()
-            //    new TerserPlugin({
-            //        terserOptions: {
-            //            compress: argv['optimize-minimize'] // only if -p or --optimize-minimize were passed
-            //        }
-            //    })
+            new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: 'main.css',
+            })
+            //new TerserPlugin({
+            //    terserOptions: {
+            //        compress: argv['optimize-minimize'] // only if -p or --optimize-minimize were passed
+            //    }
+            //})
         ]
     };
 };
