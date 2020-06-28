@@ -85,6 +85,22 @@ module.exports = function (env, argv) {
                 }
             ],
         },
+        optimization: {
+            runtimeChunk: 'single',
+            splitChunks: {
+                chunks: 'all',
+                minChunks: 1,
+                maxAsyncRequests: 5,
+                maxInitialRequests: 3,
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendors',
+                        chunks: 'all'
+                    },
+                },
+            },
+        },
         output: {
             path: path.resolve(__dirname, 'wwwroot/dist'),
             filename: '[name].js',
@@ -114,6 +130,7 @@ module.exports = function (env, argv) {
   that webpack will not alter any code other than import and export statements.
   If you are using other ES2015 features, make sure to use a transpiler such as Babel or Bublé via webpack's loader system.
 
+  runtime.js: split runtime code into a separate chunk.
   vendor.js: This file contains any libraries imported into your app.
    Third party libraries imported into your app also get compiled into this file(e.g.lodash, moment etc).
   main.js: This is where the action happens.This file contains all your code.
@@ -238,4 +255,40 @@ Loaders:
     - Save valuable development time by only updating what's changed.
     - Instantly update the browser when modifications are made to CSS/JS in the source code,
       which is almost comparable to changing styles directly in the browser's dev tools.
+ */
+
+/*
+ Prevent Duplication:
+  The SplitChunksPlugin allows us to extract common dependencies into an existing entry chunk or an entirely new chunk.
+  Let's use this to de-duplicate the lodash dependency from:
+  optimization: {
+     splitChunks: {
+       chunks: 'all',
+     }
+  }
+
+ Extracting Boilerplate:
+  As we learned in code splitting, the SplitChunksPlugin can be used to split modules out into separate bundles.
+ webpack provides an optimization feature to split runtime code into a separate chunk using the optimization.runtimeChunk option.
+
+ Set it to single to create a single runtime bundle for all chunks:
+ optimization: {
+     runtimeChunk: 'single',
+ }
+
+ It's also good practice to extract third-party libraries, such as lodash or react,
+ to a separate vendor chunk as they are less likely to change than our local source code.
+ This step will allow clients to request even less from the server to stay up to date.
+ optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+        cacheGroups: {
+            vendor: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'all'
+            },
+        },
+    },
+ }
  */
