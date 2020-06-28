@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TypescriptWebpackCoreMvc</title>
 
-    @*<link href="~/dist/main.css" rel="stylesheet" /> <!--production mode-->*@
+    @*<link href="~/dist/main.css" rel="stylesheet" /> <!--use MiniCssExtractPlugin for production mode-->*@
+    @*<link href="~/dist/styles.css" rel="stylesheet" /> <!--use MiniCssExtractPlugin for production mode and optimization.splitChunks.cacheGroups-->*@
 
 </head>
 <body>
@@ -26,7 +27,7 @@
         </div>
     </footer>
 
-    @*<script src="~/dist/styles.js" charset="utf-8" type="module"></script> <!--optimization.splitChunks.cacheGroups-->*@
+    @*<script src="~/dist/styles.js" charset="utf-8" type="module" asp-append-version="true"></script> <!--optimization.splitChunks.cacheGroups-->*@
     <script src="~/dist/main.js" charset="utf-8" type="module" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

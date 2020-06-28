@@ -80,6 +80,7 @@ module.exports = function (env, argv) {
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
                 filename: 'main.css',
+                // filename: '[name].css', use with optimization.splitChunks.cacheGroups
             })
             //new TerserPlugin({
             //    terserOptions: {
