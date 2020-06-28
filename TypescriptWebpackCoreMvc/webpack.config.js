@@ -8,7 +8,7 @@ module.exports = function (env, argv) {
     console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
     console.log('Production: ', env.production); // true
     console.log('Process NODE_ENV: ', process.env.NODE_ENV); // undefined
-    
+
     const singletonStyleLoader = { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } }
 
     return {
@@ -68,6 +68,12 @@ module.exports = function (env, argv) {
                     options: {
                         limit: 8192,
                     }
+                }, {
+                    test: /\.(csv|tsv)$/,
+                    use: ['csv-loader']
+                }, {
+                    test: /\.xml$/,
+                    use: ['xml-loader']
                 }
             ],
         },
