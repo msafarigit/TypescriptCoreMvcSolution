@@ -181,6 +181,16 @@ Loaders:
  */
 
 /*
+ MiniCssExtractPlugin: This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
+ It supports On-Demand-Loading of CSS and SourceMaps.
+
+ {
+     filename: devMode ? bundleFileName + '.css' : bundleFileName + '.min.css',
+     chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+ }
+*/
+
+/*
  Module Resolution: A resolver is a library which helps in locating a module by its absolute path.
  A module can be required as a dependency from another module as:
     import foo from 'path/to/module';
