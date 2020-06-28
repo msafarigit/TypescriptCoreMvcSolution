@@ -2,7 +2,6 @@
   "version": "1.0.0",
   "name": "asp.net",
   "private": true,
-  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --env.NODE_ENV=local --env.production --progress"
   },
