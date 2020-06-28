@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = function (env, argv) {
     console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
     console.log('Production: ', env.production); // true
+    //process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
 
     return {
         mode: env.production ? 'production' : 'development',
@@ -16,7 +17,7 @@ module.exports = function (env, argv) {
             rules: [
                 {
                     test: /\.css$/,
-                    exclude: /\.lazy\.css$/i,
+                    exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.module\.css$/i],
                     use: [
                         { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } },
                         {
