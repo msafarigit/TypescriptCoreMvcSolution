@@ -8,7 +8,7 @@ module.exports = function (env, argv) {
 
     return {
         mode: env.production ? 'production' : 'development',
-        devtool: env.production ? 'source-maps' : 'eval',
+        devtool: env.production ? 'source-map' : 'eval',
         entry: () => new Promise((resolve) => resolve('./Content/js/app.js')),
         target: 'web', // <=== default is 'web'
         module: {
@@ -106,6 +106,9 @@ module.exports = function (env, argv) {
  Using source maps:
   When webpack bundles your source code, it can become difficult to track down errors and warnings to their original location.
   In order to make it easier to track down errors and warnings, JavaScript offers source maps, which map your compiled code back to your original source code.
+
+ devtool: string false
+ Choose a style of source mapping to enhance the debugging process. These values can affect build and rebuild speed dramatically.
 */
 
 /*
