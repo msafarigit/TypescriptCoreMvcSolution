@@ -9,6 +9,10 @@ module.exports = function (env, argv) {
         mode: env.production ? 'production' : 'development',
         devtool: env.production ? 'source-maps' : 'eval',
         entry: () => new Promise((resolve) => resolve('./Content/js/app.js')),
+        target: 'web', // <=== default is 'web'
+        module: {
+            noParse: /jquery|lodash/,
+        },
         output: {
             path: path.resolve(__dirname, 'wwwroot/dist'),
             filename: '[name].js',
@@ -25,6 +29,14 @@ module.exports = function (env, argv) {
 };
 
 /*
+ webpack is used to compile JavaScript modules. Once installed, you can interface with webpack either from its CLI or API.
+ The import and export statements have been standardized in ES2015.
+ Although they are not supported in most browsers yet, webpack does support them out of the box.
+ 
+ Note:
+ that webpack will not alter any code other than import and export statements.
+ If you are using other ES2015 features, make sure to use a transpiler such as Babel or Bublé via webpack's loader system.
+
  vendor.js: This file contains any libraries imported into your app.
   Third party libraries imported into your app also get compiled into this file(e.g.lodash, moment etc).
  main.js: This is where the action happens.This file contains all your code.

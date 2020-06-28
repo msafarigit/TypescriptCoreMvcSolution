@@ -16,3 +16,9 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+/*
+ In this setup, index.js explicitly requires lodash to be present, and binds it as _ (no global scope pollution).
+ By stating what dependencies a module needs, webpack can use this information to build a dependency graph.
+ It then uses the graph to generate an optimized bundle where scripts will be executed in the correct order.
+ */
