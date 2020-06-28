@@ -3,6 +3,7 @@
   "name": "asp.net",
   "private": true,
   "scripts": {
+    "watch": "webpack --env.NODE_ENV=local --env.production --watch",
     "build": "webpack --env.NODE_ENV=local --env.production --progress"
   },
   "devDependencies": {

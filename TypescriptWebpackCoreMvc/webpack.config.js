@@ -108,7 +108,19 @@ module.exports = function (env, argv) {
   In order to make it easier to track down errors and warnings, JavaScript offers source maps, which map your compiled code back to your original source code.
 
  devtool: string false
- Choose a style of source mapping to enhance the debugging process. These values can affect build and rebuild speed dramatically.
+  Choose a style of source mapping to enhance the debugging process. These values can affect build and rebuild speed dramatically.
+
+ Choosing a Development Tool:
+  It quickly becomes a hassle to manually run npm run build every time you want to compile your code.
+  There are a couple of different options available in webpack that help you automatically compile your code whenever it changes:
+    1-webpack's Watch Mode: You can instruct webpack to "watch" all files within your dependency graph for changes.
+      If one of these files is updated, the code will be recompiled so you don't have to run the full build manually.
+      The only downside is that you have to refresh your browser in order to see the changes.
+    2-webpack-dev-server: The webpack-dev-server provides you with a simple web server and the ability to use live reloading.
+    3-webpack-dev-middleware: webpack-dev-middleware is a wrapper that will emit files processed by webpack to a server.
+      This is used in webpack-dev-server internally, however it's available as a separate package to allow more custom setups if desired.
+
+  In most cases, you probably would want to use webpack-dev-server, but let's explore all of the above options.
 */
 
 /*
