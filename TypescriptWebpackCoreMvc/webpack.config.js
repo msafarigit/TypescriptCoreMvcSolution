@@ -16,10 +16,53 @@ module.exports = function (env, argv) {
             rules: [
                 {
                     test: /\.css$/,
+                    exclude: /\.lazy\.css$/i,
+                    use: [
+                        { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: false,
+                                sourceMap: true,
+                                importLoaders: 0,
+                                // 0 => no loaders (default);
+                                // 1 => postcss-loader;
+                                // 2 => postcss-loader, sass-loader
+                            }
+                        },
+                        //'postcss-loader',
+                        //'sass-loader'
+                    ]
+                }, {
+                    test: /\.lazy\.css$/i,
+                    use: [
+                        { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
+                        { loader: 'css-loader', options: { modules: false, sourceMap: true } },
+                    ],
+                }, {
+                    test: /\.link\.css$/i,
+                    use: [
+                        { loader: 'style-loader', options: { injectType: 'linkTag' } },
+                        { loader: 'file-loader' }
+                    ],
+                }, {
+                    // For CSS modules
+                    test: /\.module\.css$/i,
                     use: [
                         'style-loader',
-                        'css-loader'
-                    ]
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                            },
+                        },
+                    ],
+                }, {
+                    test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                    },
                 }
             ],
         },
@@ -89,14 +132,21 @@ Loaders:
  Loading CSS:
  module.rules for css enables you to import './style.css' into the file that depends on that styling.
  Now, when that module is run, a <style> tag with the stringified css will be inserted into the <head> of your html file.
+
+ The css-loader interprets @import and url() like import/require() and will resolve them.
+ The style-loader Inject CSS into the DOM.
+ It's recommended to combine style-loader with the css-loader.
+
+ The style-loader will dynamically insert the <link href="path/to/file.css" rel="stylesheet"> tag at runtime via JavaScript.
+ You should use MiniCssExtractPlugin if you want to include a static <link href="path/to/file.css" rel="stylesheet">.
 */
 
 /*
  Plugins:
- While loaders are used to transform certain types of modules,
- plugins can be leveraged to perform a wider range of tasks like bundle optimization,
- asset management and injection of environment variables.
- */
+  While loaders are used to transform certain types of modules,
+  plugins can be leveraged to perform a wider range of tasks like bundle optimization,
+  asset management and injection of environment variables.
+*/
 
 /*
  Cleaning up the /dist folder:
