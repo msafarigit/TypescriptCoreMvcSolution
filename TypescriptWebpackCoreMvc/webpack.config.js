@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = function (env, argv) {
     console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
     console.log('Production: ', env.production); // true
+    console.log('Process NODE_ENV: ', process.env.NODE_ENV); // undefined
     
     const singletonStyleLoader = { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } }
 
@@ -22,7 +23,7 @@ module.exports = function (env, argv) {
                     test: /\.(sa|sc|c)ss$/,
                     exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.module\.css$/i],
                     use: [
-                        process.env.NODE_ENV !== 'production' ? singletonStyleLoader : MiniCssExtractPlugin.loader,
+                        env.production ? MiniCssExtractPlugin.loader : singletonStyleLoader,
                         {
                             loader: 'css-loader',
                             options: {
