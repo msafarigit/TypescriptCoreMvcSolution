@@ -1,4 +1,4 @@
-﻿require('./lib');
+﻿const { getText } = require('./lib');
 
 import ES6Lib from './es6codelib';
 

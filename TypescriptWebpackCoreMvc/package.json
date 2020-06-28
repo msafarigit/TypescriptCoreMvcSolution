@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "watch": "webpack --env.NODE_ENV=local --env.production --watch",
-    "build": "webpack --env.NODE_ENV=local --env.production --progress"
+    "build": "webpack --env.NODE_ENV=local --progress"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
