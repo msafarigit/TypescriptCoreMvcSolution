@@ -8,10 +8,13 @@ let myES6Object = new ES6Lib();
 document.getElementById("fillthiswithes6lib").innerHTML = myES6Object.getData();
 
 import _ from 'lodash';
+import '../css/style.css';
+
 function component() {
     const element = document.createElement('div');
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.classList.add('hello');
     return element;
 }
 

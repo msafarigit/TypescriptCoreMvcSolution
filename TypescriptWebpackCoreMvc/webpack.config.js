@@ -12,6 +12,15 @@ module.exports = function (env, argv) {
         target: 'web', // <=== default is 'web'
         module: {
             noParse: /jquery|lodash/,
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                }
+            ],
         },
         output: {
             path: path.resolve(__dirname, 'wwwroot/dist'),
@@ -49,6 +58,12 @@ module.exports = function (env, argv) {
     - An @import statement inside of a css/sass/less file.
     - An image url in a stylesheet url(...) or HTML <img src=...> file.
 */
+
+/*
+ Loading CSS:
+ module.rules for css enables you to import './style.css' into the file that depends on that styling.
+ Now, when that module is run, a <style> tag with the stringified css will be inserted into the <head> of your html file.
+ */
 
 /*
 Loaders:
