@@ -19,7 +19,7 @@ module.exports = function (env, argv) {
             noParse: /jquery|lodash/,
             rules: [
                 {
-                    test: /\.css$/,
+                    test: /\.(sa|sc|c)ss$/,
                     exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.module\.css$/i],
                     use: [
                         process.env.NODE_ENV !== 'production' ? singletonStyleLoader : MiniCssExtractPlugin.loader,
@@ -187,6 +187,20 @@ Loaders:
  {
      filename: devMode ? bundleFileName + '.css' : bundleFileName + '.min.css',
      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+ }
+
+ Extracting all CSS in a single file: The CSS can be extracted in one CSS file using optimization.splitChunks.cacheGroups.
+ optimization: {
+     splitChunks: {
+         cacheGroups: {
+             styles: {
+                 name: 'styles',
+                 test: /\.(sa|sc|c)ss$/,
+                 chunks: 'all',
+                 enforce: true,
+             },
+         },
+     },
  }
 */
 

@@ -26,7 +26,8 @@
         </div>
     </footer>
 
-    <script src="~/dist/main.js" charset="utf-8" asp-append-version="true"></script>
+    @*<script src="~/dist/styles.js" charset="utf-8" type="module"></script> <!--optimization.splitChunks.cacheGroups-->*@
+    <script src="~/dist/main.js" charset="utf-8" type="module" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
