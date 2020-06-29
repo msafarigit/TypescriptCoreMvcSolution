@@ -67,15 +67,21 @@ module.exports = function (env, argv) {
                         {
                             loader: 'css-loader',
                             options: {
-                                modules: true,
+                                modules: true
                             }
                         },
                     ],
                 }, {
-                    test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+                    test: /\.(eot|ttf|woff|woff2)$/i,
                     loader: 'url-loader',
                     options: {
-                        limit: 8192,
+                        limit: 8192
+                    }
+                }, {
+                    test: /\.(png|svg|jpe?g|gif)$/,
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'images'
                     }
                 }, {
                     test: /\.(csv|tsv)$/,
@@ -102,6 +108,9 @@ module.exports = function (env, argv) {
                 },
             },
         },
+        resolve: {
+            extensions: ['.tsx', '.ts', '.js']
+        },
         output: {
             path: path.resolve(__dirname, 'wwwroot/dist'),
             filename: '[name].js',
@@ -119,11 +128,19 @@ module.exports = function (env, argv) {
                 'window.jQuery': 'jquery',
                 Popper: ['popper.js', 'default']
             })
+            //new CompressionPlugin({
+            //    filename: '[path].gz[query]',
+            //    algorithm: 'gzip',
+            //    test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+            //    threshold: 10240,
+            //    minRatio: 0.8
+            //}),
             //new TerserPlugin({
             //    terserOptions: {
             //        compress: argv['optimize-minimize'] // only if -p or --optimize-minimize were passed
             //    }
             //})
+
         ]
     };
 };
@@ -133,7 +150,7 @@ module.exports = function (env, argv) {
   The import and export statements have been standardized in ES2015.
   Although they are not supported in most browsers yet, webpack does support them out of the box.
   As you can see, webpack replaces all the export statements with Object.defineProperty on the exports object.
-  It also replaces all references to imported values with property accessors. 
+  It also replaces all references to imported values with property accessors.
   Also note the "use strict" directive at the beginning of every ESM.
   This was added by webpack to account for the strict mode in ESMs.
 
@@ -204,6 +221,12 @@ Loaders:
 */
 
 /*
+ url-loader: A loader for webpack which transforms files into base64 URIs.
+    url-loader works like file-loader, but can return a DataURL if the file is smaller than a byte limit.
+ file-loader: The file-loader resolves import/require() on a file into a url and emits the file into the output directory.
+*/
+
+/*
  Loading CSS:
   module.rules for css enables you to import './style.css' into the file that depends on that styling.
  Now, when that module is run, a <style> tag with the stringified css will be inserted into the <head> of your html file.
@@ -217,6 +240,10 @@ Loaders:
 */
 
 /*
+ resolve.extensions: you can now require('file') instead of require('file.js'), Attempt to resolve these extensions in order
+ */
+
+/*
  Plugins:
   While loaders are used to transform certain types of modules,
   plugins can be leveraged to perform a wider range of tasks like bundle optimization,
@@ -224,7 +251,7 @@ Loaders:
 */
 
 /*
- ProvidePlugin: 
+ ProvidePlugin:
   Automatically load modules instead of having to import or require them everywhere.
     new webpack.ProvidePlugin({
      identifier: ['module1', 'property1'],
