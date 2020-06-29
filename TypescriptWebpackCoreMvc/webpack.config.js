@@ -132,6 +132,10 @@ module.exports = function (env, argv) {
  webpack is used to compile JavaScript modules. Once installed, you can interface with webpack either from its CLI or API.
   The import and export statements have been standardized in ES2015.
   Although they are not supported in most browsers yet, webpack does support them out of the box.
+  As you can see, webpack replaces all the export statements with Object.defineProperty on the exports object.
+  It also replaces all references to imported values with property accessors. 
+  Also note the "use strict" directive at the beginning of every ESM.
+  This was added by webpack to account for the strict mode in ESMs.
 
  Note:
   that webpack will not alter any code other than import and export statements.

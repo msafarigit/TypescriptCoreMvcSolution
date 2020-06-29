@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "webpack --env.NODE_ENV=local --env.production --watch",
     "build": "webpack --env.NODE_ENV=local --progress --profile",
-    "production": "webpack --env.production --progress --profile"
+    "production": "webpack --env.production --env.min --progress --profile"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
