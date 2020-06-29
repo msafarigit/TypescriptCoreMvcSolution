@@ -359,3 +359,25 @@ Loaders:
     },
  }
  */
+
+/*
+ Build Performance:
+ 1- Worker Pool: The thread-loader can be used to offload expensive loaders to a worker pool.
+  Don't use too many workers, as there is a boot overhead for the Node.js runtime and the loader. 
+  Minimize the module transfers between worker and main process. IPC is expensive.
+
+ 2-Compile in Memory: The following utilities improve performance by compiling and serving assets in memory rather than writing to disk:
+    -webpack-dev-server
+    -webpack-hot-middleware
+    -webpack-dev-middleware
+
+ 3-Persistent cache: Enable persistent caching with the cache-loader. Clear cache directory on "postinstall" in package.json.
+
+ 4-Avoid Production Specific Tooling: These tools should typically be excluded in development:
+    -TerserPlugin
+    -ExtractTextPlugin
+    -[hash]/[chunkhash]
+    -AggressiveSplittingPlugin
+    -AggressiveMergingPlugin
+    -ModuleConcatenationPlugin
+ */
