@@ -44,6 +44,7 @@ module.exports = function (env, argv) {
                             }
                         },
                         //'postcss-loader', // Loader for webpack to process CSS with PostCSS
+                        // the ‘postcss - loader’ configuration object MUST BE USED BEFORE  the ‘sass - loader’!
                         //'sass-loader' // Loads a SASS/SCSS file and compiles it to CSS
                     ]
                 }, {
@@ -148,6 +149,15 @@ module.exports = function (env, argv) {
     - An AMD define and require statement
     - An @import statement inside of a css/sass/less file.
     - An image url in a stylesheet url(...) or HTML <img src=...> file.
+
+  it is important to know that ES2015 introduced two different modes:
+    - script for regular scripts with a global namespace
+    - module for modular code with explicit imports and exports
+
+  If you try to use the import or export statement inside a script, it will raise a SyntaxError.
+  These statements just make no sense in a global context.
+  On the other hand, the module mode implies strict mode, which forbids certain language features, such as the with statement.
+  Hence, it is necessary to define the mode before the script is parsed and executed.
 
  Using source maps:
   When webpack bundles your source code, it can become difficult to track down errors and warnings to their original location.

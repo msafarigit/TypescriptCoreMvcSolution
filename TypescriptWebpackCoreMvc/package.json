@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "watch": "webpack --env.NODE_ENV=local --env.production --watch",
-    "build": "webpack --env.NODE_ENV=local --progress"
+    "build": "webpack --env.NODE_ENV=local --progress --profile",
+    "production": "webpack --env.production --progress --profile"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
