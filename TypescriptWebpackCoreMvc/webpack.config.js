@@ -43,8 +43,8 @@ module.exports = function (env, argv) {
                                 // 2 => postcss-loader, sass-loader
                             }
                         },
-                        //'postcss-loader',
-                        //'sass-loader'
+                        //'postcss-loader', // Loader for webpack to process CSS with PostCSS
+                        //'sass-loader' // Loads a SASS/SCSS file and compiles it to CSS
                     ]
                 }, {
                     test: /\.lazy\.css$/i,
@@ -111,6 +111,12 @@ module.exports = function (env, argv) {
             new MiniCssExtractPlugin({
                 filename: 'main.css',
                 // filename: '[name].css', use with optimization.splitChunks.cacheGroups
+            }),
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery',
+                Popper: ['popper.js', 'default']
             })
             //new TerserPlugin({
             //    terserOptions: {
@@ -185,7 +191,7 @@ Loaders:
 
 /*
  Loading CSS:
- module.rules for css enables you to import './style.css' into the file that depends on that styling.
+  module.rules for css enables you to import './style.css' into the file that depends on that styling.
  Now, when that module is run, a <style> tag with the stringified css will be inserted into the <head> of your html file.
 
  The css-loader interprets @import and url() like import/require() and will resolve them.
@@ -201,6 +207,26 @@ Loaders:
   While loaders are used to transform certain types of modules,
   plugins can be leveraged to perform a wider range of tasks like bundle optimization,
   asset management and injection of environment variables.
+*/
+
+/*
+ ProvidePlugin: 
+  Automatically load modules instead of having to import or require them everywhere.
+    new webpack.ProvidePlugin({
+     identifier: ['module1', 'property1'],
+     // ...
+    });
+  By default, module resolution path is current folder (./**) and node_modules.
+  other: identifier: path.resolve(path.join(__dirname, 'src/module1'))
+
+ Whenever the identifier is encountered as free variable in a module, the module is loaded automatically
+ and the identifier is filled with the exports of the loaded module (or property in order to support named exports).
+ For importing the default export of an ES2015 module, you have to specify the default property of module.
+
+ Usage: Lodash Map
+    new webpack.ProvidePlugin({
+      _map: ['lodash', 'map']
+    });
 */
 
 /*

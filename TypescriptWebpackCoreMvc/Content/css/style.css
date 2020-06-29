@@ -1,5 +1,7 @@
 ﻿@charset "UTF-8";
 
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
 @font-face {
     font-family: "VazirLight";
     src: url('../font/Vazir-Light.eot'); /* IE6–8 */
@@ -45,9 +47,12 @@ html, body {
     font-family: VazirBold, Arial, Helvetica, sans-serif;
 }
 
+body {
+    background: url(../img/stylish-hexagonal-line-pattern.jpg) repeat transparent;
+}
+
     body * {
         font-family: VazirLight, Arial, Helvetica, sans-serif;
-        background: url(../img/stylish-hexagonal-line-pattern.jpg) repeat transparent;
     }
 
 
