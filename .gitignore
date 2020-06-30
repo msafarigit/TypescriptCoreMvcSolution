@@ -379,6 +379,7 @@ Blog
 About
 
 TypescriptCoreMvc/wwwroot/tsc/*
+JavascriptWebpackCoreMvc/wwwroot/dist/*
 TypescriptWebpackCoreMvc/wwwroot/tsc/*
 TypescriptWebpackCoreMvc/wwwroot/dist/*
 
