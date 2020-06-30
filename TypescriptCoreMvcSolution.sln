@@ -9,7 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypescriptCoreWeb", "Typesc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypescriptCoreRazorLibrary", "TypescriptCoreRazorLibrary\TypescriptCoreRazorLibrary.csproj", "{AC683B88-DE2C-44DB-9C71-C029E11D3D22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypescriptWebpackCoreMvc", "TypescriptWebpackCoreMvc\TypescriptWebpackCoreMvc.csproj", "{866C0F60-7F05-4435-B775-C98D8632E442}"
+Project("{FAE04EC0-301F-11D3-BF4B-9A1E7A4F7556}") = "TypescriptWebpackCoreMvc", "TypescriptWebpackCoreMvc\TypescriptWebpackCoreMvc.csproj", "{866C0F60-7F05-4435-B775-C98D8632E442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavascriptWebpackCoreMvc", "JavascriptWebpackCoreMvc\JavascriptWebpackCoreMvc.csproj", "{866C0F60-7F05-4435-B775-C18D8632E442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +30,10 @@ Global
 		{AC683B88-DE2C-44DB-9C71-C029E11D3D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC683B88-DE2C-44DB-9C71-C029E11D3D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC683B88-DE2C-44DB-9C71-C029E11D3D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866C0F60-7F05-4435-B775-C18D8632E442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866C0F60-7F05-4435-B775-C18D8632E442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866C0F60-7F05-4435-B775-C18D8632E442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866C0F60-7F05-4435-B775-C18D8632E442}.Release|Any CPU.Build.0 = Release|Any CPU
 		{866C0F60-7F05-4435-B775-C98D8632E442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{866C0F60-7F05-4435-B775-C98D8632E442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{866C0F60-7F05-4435-B775-C98D8632E442}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,0 +1,64 @@
+﻿@charset "UTF-8";
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@font-face {
+    font-family: "VazirLight";
+    src: url('../font/Vazir-Light.eot'); /* IE6–8 */
+    src: url('../font/Vazir-Light.eot?#iefix') format("embedded-opentype"), url('../font/Vazir-Light.woff') format("woff"), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../font/Vazir-Light.ttf') format("truetype"); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "VazirBold";
+    src: url('../font/Vazir-Bold.eot') format('eot'); /* IE6–8 */
+    src: url('../font/Vazir-Bold.eot?#iefix') format("embedded-opentype"), url('../font/Vazir-Bold.woff') format("woff"), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../font/Vazir-Bold.ttf') format("truetype"); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IranRegular Subsidiary";
+    src: url('../font/IranRegular.eot') format('eot'); /* IE6–8 */
+    src: url('../font/IranRegular.eot?#iefix') format("embedded-opentype"), url('../font/IranRegular.woff') format("woff"), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../font/IranRegular.ttf') format("truetype"); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IranBold Subsidiary";
+    src: url('../font/IranBold.eot') format('eot'); /* IE6–8 */
+    src: url('../font/IranBold.eot?#iefix') format("embedded-opentype"), url('../font/IranBold.woff') format("woff"), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../font/IranBold.ttf') format("truetype"); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body {
+    font-size: 15px;
+    font-family: VazirBold, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: url(../img/stylish-hexagonal-line-pattern.jpg) repeat transparent;
+}
+
+    body * {
+        font-family: VazirLight, Arial, Helvetica, sans-serif;
+    }
+
+
+
+
+
+.hello {
+    color: red;
+}

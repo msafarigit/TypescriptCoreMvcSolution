@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JavascriptWebpackCoreMvc</title>
+
+    @*<link href="~/dist/main.css" rel="stylesheet" /> <!--use MiniCssExtractPlugin for production mode-->*@
+    @*<link href="~/dist/styles.css" rel="stylesheet" /> <!--use MiniCssExtractPlugin for production mode and optimization.splitChunks.cacheGroups-->*@
+
+</head>
+<body>
+    <header>
+        <h1>This is the entry page.</h1>
+        <div id="fillthis"></div>
+        <div id="fillthiswithjquery"></div>
+        <div id="fillthiswithes6lib"></div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">@RenderBody()</main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - JavascriptWebpackCoreMvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/dist/runtime.js" charset="utf-8" type="module" asp-append-version="true"></script>
+    @*<script src="~/dist/styles.js" charset="utf-8" type="module" asp-append-version="true"></script> <!--optimization.splitChunks.cacheGroups-->*@
+    <script src="~/dist/vendors.js" charset="utf-8" type="module" asp-append-version="true"></script>
+    <script src="~/dist/main.js" charset="utf-8" type="module" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

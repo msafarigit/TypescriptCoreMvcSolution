@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "name": "javascriptwebpackcoremvc",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --env.NODE_ENV=local --env.production --watch",
+    "build": "webpack --env.NODE_ENV=local --progress --profile",
+    "production": "webpack --env.production --env.min --progress --profile"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.15",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "csv-loader": "^3.0.3",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "xml-loader": "^1.2.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
